@@ -1,0 +1,39 @@
+ngay=int(input('Ngày: '))
+thang=int(input('Tháng: '))
+nam=int(input('Năm: '))
+def tinh_so_chu_dao (a,b,c):
+    #gộp các số lại thành 1 chuỗi
+    chuoi_so=str(a)+str(b)+str(c)
+    #B1: tính tổng các chữ số
+    tong=0
+    for so in chuoi_so:
+        tong=int(so)+tong #int(chu): đổi str sang số nguyên để tổng
+    #B2: rút gọn tổng về 1 con số
+    while tong>9 and tong !=11 and tong!=22:
+        chuoi_so=str(tong) #cập nhật chuỗi mới từ tổng hiện tại
+        tong_tam_thoi=0
+        for chu in chuoi_so:
+            tong_tam_thoi=tong_tam_thoi+int(chu)
+        tong=tong_tam_thoi
+    return tong
+def giai_ma_y_nghia (so_chu_dao):
+    giai_ma={
+        1: "Số 1: Người Tiên Phong - đại diện cho ý chí độc lập, tinh thần tiên phong và khả năng lãnh đạo bẩm sinh, nhưng cần tiết chế xu hướng độc đoán và coi mình là trung tâm.",
+        2: "Số 2: Người Hòa Giải - có khả năng ngoại giao, thấu hiểu và kết nối người khác một cách tinh tế, nhưng dễ bị phụ thuộc cảm xúc và thiếu quyết đoán khi gặp áp lực.",
+        3: "Số 3: Người Truyền Cảm Hứng - giỏi giao tiếp, tư duy sáng tạo và lan tỏa năng lượng tích cực, tuy nhiên cần rèn luyện tính kỷ luật để hoàn thành mục tiêu thay vì bị phân tán.",
+        4: "Số 4: Người Xây Dựng - tượng trưng cho sự ổn định, kỷ luật và khả năng tổ chức công việc thực tế, nhưng nên tránh việc trở nên quá cứng nhắc, bảo thủ và tham công tiếc việc.",
+        5: "Số 5: Người Tìm Kiếm Tự Do - linh hoạt, thông minh và yêu thích tự do phiêu lưu trải nghiệm, nhưng dễ bị phân tán bởi nhiều mối quan tâm và cần học cách cam kết kiên định.",
+        6: "Số 6: Người Chăm Sóc - giàu tình yêu thương, có trách nhiệm cao với gia đình và cộng đồng, song cần cẩn thận để không hy sinh quá mức và trở nên bao đồng, thích kiểm soát.",
+        7: "Số 7: Nhà Thông Thái - có nội tâm sâu sắc, khả năng phân tích tri thức và chiêm nghiệm, nhưng có xu hướng tự cô lập bản thân, xa cách và đôi khi quá hoài nghi thực tế.",
+        8: "Số 8: Người Điều Hành - có tham vọng lớn, tư duy điều hành và khả năng quản lý tài chính vượt trội, nhưng dễ bị quyền lực và chủ nghĩa vật chất chi phối, dẫn đến sự độc đoán.",
+        9: "Số 9: Người Nhân Đạo - sống có lý tưởng nhân đạo, giàu lòng bao dung và trí tuệ sâu sắc, tuy nhiên cần cân bằng giữa việc cho đi và học cách buông bỏ quá khứ.",
+        11: "Số 11: Người Truyền Cảm Hứng Trực Giác - sở hữu trực giác cực kỳ nhạy bén và khả năng truyền cảm hứng tâm linh mạnh mẽ, nhưng dễ bị căng thẳng thần kinh và khó cân bằng với cuộc sống vật chất.",
+        22: "Số 22: Bậc Thầy Kiến Tạo - có khả năng phi thường để biến những lý tưởng lớn thành hiện thực mang tầm ảnh hưởng, nhưng phải đối mặt với áp lực tinh thần cực lớn và cần tránh lạm dụng quyền lực."
+    }
+    return giai_ma.get(so_chu_dao,'Không có dữ liệu') #get(so): lấy gtri trong từ điển ko bị lỗi
+#Gọi hàm tính
+so_cd=tinh_so_chu_dao(ngay,thang,nam)
+#Lấy ý nghĩa
+y_nghia=giai_ma_y_nghia(so_cd)
+print ('số chủ đạo của bạn là:',tinh_so_chu_dao(ngay,thang,nam))
+print('Ý nghĩa:',y_nghia)
