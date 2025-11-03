@@ -1,6 +1,6 @@
 import sys
 from PyQt6.QtWidgets import QDialog, QApplication
-from thansohoc import Ui_dialog
+from Giaodien import Ui_dialog
 
 
 class MainApp(QDialog):
